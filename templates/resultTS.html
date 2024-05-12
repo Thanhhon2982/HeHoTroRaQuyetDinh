@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- All CSS -->
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="/static/css/themify-icons.css">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <style>
+    h1,
+    h2,
+    h3 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+      /* Darker text for better readability */
+    }
+
+    /* Enhanced visual appeal for buttons and links */
+    button,
+    .continue-button {
+      padding: 10px 20px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      background-color: #007bff;
+      color: #fff;
+      cursor: pointer;
+      display: inline-block;
+      text-align: center;
+      text-decoration: none;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      /* Soft shadow for depth */
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    button:hover,
+    .continue-button:hover {
+      background-color: #0056b3;
+      transform: translateY(-2px);
+      /* Slight lift on hover */
+    }
+
+    /* Styling adjustments for forms and input fields */
+    input[type="number"],
+    input[type="submit"] {
+      width: auto;
+      /* Flex width based on content */
+      padding: 8px 10px;
+      margin-right: 10px;
+      border: 1px solid #ccc;
+      /* Refined border */
+      border-radius: 4px;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    input[type="number"]:focus,
+    input[type="submit"]:hover {
+      border-color: #0056b3;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      /* Enhanced focus state */
+    }
+
+    /* Table enhancements */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px auto;
+      background-color: #fff;
+      /* Light background for the table */
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+      /* Shadow for depth */
+    }
+
+
+
+    th,
+    td {
+      border: 1px solid #097eac;
+      text-align: left;
+      padding: 8px;
+    }
+
+    th:first-child,
+    td:first-child {
+      border-left: none;
+      /* Loại bỏ đường viền bên trái của ô đầu tiên */
+    }
+
+    th {
+      background-color: #aff2bb;
+    }
+
+    tr:nth-child(even) {
+      background-color: #aff2c8;
+    }
+
+    /* Specific styles for readonly input fields */
+    input[type="text"][readonly] {
+      background-color: #f9f9f9;
+      color: #666;
+    }
+
+    /* Highlight active input fields */
+    input[type="text"]:not([readonly]):hover,
+    input[type="text"]:not([readonly]):focus {
+      border-color: #0056b3;
+      background-color: #e6f7ff;
+    }
+
+    /* Special styling for diagonal cells */
+    .diagonal-cell input[type="text"] {
+      background-color: #0bbc69;
+      /* Bright green background */
+      color: red;
+      /* Red text for strong emphasis */
+    }
+
+    /* Footer enhancements */
+    .footer {
+      padding-top: 20px;
+      text-align: center;
+      background-color: #f0f0f0;
+      border-top: 1px solid #ccc;
+      color: #666;
+      /* Subtle text color */
+    }
+
+    /* Responsive design tweaks */
+    @media (max-width: 768px) {
+
+      h1,
+      h2,
+      h3 {
+        font-size: 16px;
+        /* Smaller font size on mobile devices */
+      }
+
+      .button-container {
+        padding: 0 10px;
+        /* Padding adjustments for smaller screens */
+      }
+    }
+
+    .banner {
+      padding: 10% 0 0;
+    }
+  </style>
+  <title>AHP</title>
+</head>
+
+<body>
+
+  <!-- Header strat -->
+  <header class="header abs-header">
+    <div class="container">
+      <nav class="navbar">
+        <!-- Site logo -->
+        <a href="/" class="logo">
+          NHÓM 5
+        </a>
+        <a href="javascript:void(0);" id="mobile-menu-toggler">
+          <i class="ti-align-justify"></i>
+        </a>
+        <ul class="navbar-nav">
+          <li><a href="/">Trang chủ</a></li>
+          <li><a href="/trongso">Tạo ma trận trọng số</a></li>
+          <li><a href="/phuongan">Tạo ma trận phương án</a></li>
+          <li><a href="/tinh2matran">Kết quả</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <!-- Header strat -->
+
+  <!-- Banner section start -->
+  <section class="banner">
+
+  </section>
+  <!-- Banner section end -->
+
+  <!-- Features section start -->
+  <section class="features">
+    <div class="container">
+      <h1>
+        Lập ma trận so sánh cặp giữa các tiêu chí và tính các vector ưu tiên
+      </h1>
+      <h1>{{ title|safe }}</h1>
+      <h2>HÀM TÍNH TỔNG</h2>
+      {{ table_1|safe }}
+      <h2>Tính trọng số cho các tiêu chí (trung bình theo hàng)</h2>
+      {{ table_2|safe }}
+      <h2>TÍNH CR</h2>
+      {{ table_3|safe }}
+      <h2>TÍNH VECTOR</h2>
+      {{ table_4|safe }}
+      <h3>Lambdamax = {{lambda_max|safe }}</h3>
+      <h3>CI = {{ ci|safe }}</h3>
+      <h3>CR (RI=1.12) = {{ cr|safe }}</h3>
+
+      <div class="button-container">
+        <a class="continue-button" href="phuongan">Tiếp tục</a>
+      </div>
+    </div>
+  </section>
+  <!-- Features section end -->
+
+
+  <!-- Team section end -->
+
+
+  <!-- Footer strat -->
+  <footer class="footer">
+    <div class="foo-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="widget widget-text">
+             <h1 style="color: azure;">AHP</h1>
+              <p>Hệ hỗ trợ quyết định trong tiếng Anh gọi là Decision Support System, viết tắt là DSS. Hệ hỗ trợ quyết định (DSS) là một chương trình vi tính được sử dụng để hỗ trợ đưa ra các quyết định, phán đoán và chiều hướng hành động của một tổ chức hoặc một doanh nghiệp</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="widget widget-navigation">
+              <h3 class="widget-title">Danh mục</h3>
+              <ul>
+                <li><a href="/">Trang chủ</a></li>
+                <li><a href="/trongso">Tạo ma trận trọng số</a></li>
+                <li><a href="/phuongan">Tạo ma trận phương án</a></li>
+                <li><a href="/tinh2matran">Tính 2 ma trận</a></li>
+              </ul>
+            </div>
+          </div>
+         
+          <div class="col-md-3">
+            <div class="widget widget-address">
+              <h3 class="widget-title">Thông tin liên hệ</h3>
+              <address>
+                <span><i class="ti-map-alt"></i> Nhóm 5</span>
+                <a href="#"><i class="ti-mobile"></i> +084 344 517 822</a>
+                <a href="#"><i class="ti-email"></i>nhom5@gmail.com</a>
+              </address>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foo-btm">
+      <div class="container">
+        <div class="row">
+          <div class="col text-center">
+            <p class="copyright">Copyright © 2024 <a href="https://themeies.com">nhom5.com</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Footer end -->
+
+  <!-- JS -->
+  <script src="/static/js/jquery-3.3.1.min.js"></script>
+  <script src="/static/js/jquery-ui.min.js"></script>
+  <script src="/static/js/bootstrap.min.js"></script>
+  <script src="/static/js/owl.carousel.min.js"></script>
+  <script src="/static/js/scripts.js"></script>
+</body>
+
+</html>
